@@ -83,17 +83,6 @@ fun BookDetails(book: Book) {
                 text = stringResource(R.string.book_subtitle, book.volumeInfo.subtitle),
                 style = MaterialTheme.typography.titleMedium
             )
-//            Spacer(modifier = Modifier.height(8.dp))
-//            Text(
-//                text = "publisher: " + book.volumeInfo.publisher,
-//                style = MaterialTheme.typography.titleMedium
-//            )
-//            Spacer(modifier = Modifier.height(8.dp))
-//            Text(
-//                text = "publishedDate: " + book.volumeInfo.publishedDate,
-//                style = MaterialTheme.typography.titleMedium
-//            )
-//            Spacer(modifier = Modifier.height(8.dp))
             Text(
                 text = stringResource(R.string.book_authors, book.volumeInfo.allAuthors()),
                 style = MaterialTheme.typography.titleMedium
@@ -101,94 +90,9 @@ fun BookDetails(book: Book) {
 
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = stringResource(R.string.book_price, book.saleInfo.getPrice2),
-                style = MaterialTheme.typography.titleMedium
-            )
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                text = "country: " + book.saleInfo.country,
-                style = MaterialTheme.typography.titleMedium
-            )
-//            Spacer(modifier = Modifier.height(8.dp))
-//            Text(
-//                text = "isEbook: " + book.saleInfo.isEbook,
-//                style = MaterialTheme.typography.titleMedium
-//            )
-
-//            Spacer(modifier = Modifier.height(8.dp))
-//            if (!book.getPrice().isEmpty()) {
-//                Text(
-//                    text = "listPrice: " + book.saleInfo.listPrice?.amount.toString() + " - " + book.saleInfo.listPrice?.currency,
-//                    style = MaterialTheme.typography.titleMedium
-//                )
-//            }
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                text = "listPrice: " + book.saleInfo.getPrice2,
-                style = MaterialTheme.typography.titleMedium
-            )
-
-
-//            Spacer(modifier = Modifier.height(8.dp))
-//            Text(
-//                text = "description: " + book.description,
-//                style = MaterialTheme.typography.bodyMedium
-//            )
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(
                 text = "description: " + book.volumeInfo.description,
                 style = MaterialTheme.typography.bodyMedium
             )
-
-
-//            Spacer(modifier = Modifier.height(8.dp))
-//            Text(
-//                text = "smallThumbnail: " + book.volumeInfo.imageLinks?.smallThumbnail,
-//                style = MaterialTheme.typography.titleMedium
-//            )
-//            Spacer(modifier = Modifier.height(8.dp))
-//            Text(
-//                text = "thumbnail: " + book.volumeInfo.imageLinks?.thumbnail,
-//                style = MaterialTheme.typography.titleMedium
-//            )
-//            Spacer(modifier = Modifier.height(8.dp))
-//            Text(
-//                text = "httpsThumbnail: " + book.volumeInfo.imageLinks?.httpsThumbnail,
-//                style = MaterialTheme.typography.titleMedium
-//            )
         }
     }
 }
-
-
-//// Notes: the reason we see the images as the are is because it is using the image placeholder in AsyncImage
-//@Preview(showBackground = true, showSystemUi = true)
-//@Composable
-//fun DetailsScreenPreview() {
-//    BookshelfTheme {
-//        val mockData =
-//            Book(
-//                id = "123",
-//                volumeInfo = VolumeInfo(
-//                    title = "A book",
-//                    description = "Caniss ortum, tanquam bassus exemplar.",
-//                    publishedDate = "11/11/2011",
-//                    authors =  listOf("AAA","aaa"),
-//                    publisher = "John Carter",
-//                    subtitle = "Cunu litist",
-//                    imageLinks = null,
-//                ),
-//                saleInfo = SaleInfo(
-//                    country = "USA",
-//                    isEbook = false,
-//                    listPrice = ListPrice(
-//                        amount = 2.22f,
-//                        currency = "US Dollar"
-//                    )
-//                )
-//            )
-//        BookDetails(
-//            book = mockData,
-//        )
-//    }
-//}

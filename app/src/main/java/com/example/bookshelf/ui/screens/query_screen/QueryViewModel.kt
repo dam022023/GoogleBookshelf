@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
-import com.example.bookshelf.BookshelfApplication
+import com.example.bookshelf.MainActivity
 import com.example.bookshelf.data.BookshelfRepository
 import com.example.bookshelf.model.Book
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -120,7 +120,7 @@ class QueryViewModel(
         val Factory: ViewModelProvider.Factory = viewModelFactory {
             initializer {
                 val application =
-                    (this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as BookshelfApplication)
+                    (this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as MainActivity)
                 val bookshelfRepository = application.container.bookshelfRepository
                 QueryViewModel(bookshelfRepository = bookshelfRepository)
             }

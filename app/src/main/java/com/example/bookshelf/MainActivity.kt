@@ -2,10 +2,9 @@ package com.example.bookshelf
 
 import android.app.Application
 import com.example.bookshelf.di.AppContainer
-import com.example.bookshelf.di.DefaultAppContainer
+import com.example.bookshelf.network.DefaultAppContainer
 
-class BookshelfApplication: Application() {
-    /** AppContainer instance used by the rest of classes to obtain dependencies */
+class MainActivity: Application() {
     lateinit var container: AppContainer
     override fun onCreate() {
         super.onCreate()

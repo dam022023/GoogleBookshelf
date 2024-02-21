@@ -21,17 +21,13 @@ import com.example.bookshelf.ui.screens.components.MyTopAppBar
 fun BookshelfApp(
     modifier: Modifier = Modifier
 ) {
-    // Notes: Set Nav Controller
     val navController = rememberNavController()
-    // Notes: Get current back stack entry
     val backStackEntry by navController.currentBackStackEntryAsState()
 
-    // Notes: Get the name of the current screen check for null
     val currentScreen = AppDestinations.valueOf(
         backStackEntry?.destination?.route ?: AppDestinations.QueryScreen.name
     )
 
-    // Notes: Boolean to check if we can nagigate back. Check stack
     val canNavigateBack = navController.previousBackStackEntry != null
 
     Scaffold(

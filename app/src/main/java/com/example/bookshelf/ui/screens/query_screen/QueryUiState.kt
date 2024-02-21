@@ -7,3 +7,8 @@ sealed interface QueryUiState {
     object Error : QueryUiState
     object Loading : QueryUiState
 }
+
+data class SearchUiState(
+    val query: String = "",
+    val searchStarted: Boolean = false
+)

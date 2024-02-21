@@ -8,10 +8,13 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.bookshelf.ui.screens.detail_screen.DetailScreen
 import com.example.bookshelf.ui.screens.detail_screen.DetailsViewModel
-import com.example.bookshelf.ui.screens.favorite_screen.FavoritesScreen
 import com.example.bookshelf.ui.screens.query_screen.QueryScreen
 import com.example.bookshelf.ui.screens.query_screen.QueryViewModel
-import com.example.bookshelf.ui.screens.menu_screen.MenuScreen
+
+enum class AppDestinations(val title: String) {
+    QueryScreen(title = "Búsqueda"),
+    DetailScreen(title = "Libros")
+}
 
 @Composable
 fun BookshelfNavHost(
@@ -22,21 +25,9 @@ fun BookshelfNavHost(
 
     NavHost(
         navController = navController,
-        startDestination = AppDestinations.MenuScreen.name,
+        startDestination = AppDestinations.QueryScreen.name,
         modifier = modifier
     ) {
-
-        composable(route = AppDestinations.MenuScreen.name) {
-            MenuScreen(
-                onSearchClick = {
-                    navController.navigate(AppDestinations.QueryScreen.name)
-                },
-                onFavClick = {
-                    navController.navigate(AppDestinations.FavoriteScreen.name)
-                }
-            )
-        }
-
         composable(route = AppDestinations.QueryScreen.name) {
             QueryScreen(
                 viewModel = viewModel,
@@ -45,17 +36,11 @@ fun BookshelfNavHost(
                     viewModel.selectedBookId = it.id
                     navController.navigate(AppDestinations.DetailScreen.name)
                 },
+                onSearchClick = {
+                    navController.navigate(AppDestinations.QueryScreen.name)
+                }
             )
         }
-
-        composable(route = AppDestinations.FavoriteScreen.name) {
-            FavoritesScreen(
-                viewModel = viewModel,
-                retryAction = { viewModel.getBooks() },
-                bookshelfUiState = viewModel.favoritesfUiState
-            )
-        }
-
         composable(route = AppDestinations.DetailScreen.name) {
             val detailViewModel : DetailsViewModel = viewModel(factory = DetailsViewModel.Factory)
             detailViewModel.getBook(viewModel.selectedBookId)

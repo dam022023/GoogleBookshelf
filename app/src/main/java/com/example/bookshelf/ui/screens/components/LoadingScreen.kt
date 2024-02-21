@@ -15,12 +15,6 @@ fun LoadingScreen(modifier: Modifier = Modifier) {
         contentAlignment = Alignment.Center,
         modifier = modifier.fillMaxSize()
     ) {
-        // Notes: Commented out code, also ok instead of CircularProgressIndicator
-        //Image(
-        //    modifier = Modifier.size(200.dp),
-        //    painter = painterResource(R.drawable.loading_img),
-        //    contentDescription = stringResource(R.string.loading)
-        //)
         CircularProgressIndicator()
     }
 }
